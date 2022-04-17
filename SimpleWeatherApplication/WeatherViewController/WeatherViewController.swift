@@ -62,7 +62,6 @@ class WeatherViewController: UIViewController {
     private func configureIndicator() {
         loadingIndicator.type = .lineSpinFadeLoader
         loadingIndicator.color = .white
-
     }
 
     /**
@@ -136,7 +135,6 @@ class WeatherViewController: UIViewController {
 //
 //    /// Loading Indicator
 //    @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!
-//
 //
 //    /// Weather Stack
 //    @IBOutlet weak var weatherStack: UIStackView!

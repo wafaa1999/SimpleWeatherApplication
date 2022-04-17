@@ -32,7 +32,6 @@ enum WeatherRouter {
         switch self {
         case .getWeather(_, _, _):
             return .get
-            
         }
     }
     
@@ -45,11 +44,8 @@ enum WeatherRouter {
                 "q": location,
                 "aqi": aqi
             ]
-            
         }
     }
-    
-    
 }
 
 

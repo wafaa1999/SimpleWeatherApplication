@@ -23,11 +23,10 @@ class WeatherModel {
     static func getWeather(key: String, location: String, aqi: String,  completion: @escaping (Result<WeatherDetails, NetworkError>) -> Void) {
         AF.request(WeatherRouter.getWeather(key: key, location: location, aqi: aqi)).responseJSON {
             response in
-            
             guard let dataBack = response.value as? NSDictionary else {
                 completion(.failure(.invalidResponse))
-                return}
-            
+                return
+            }
             let weather = WeatherDetails(jsonObject: dataBack )
             completion(.success(weather))
         }

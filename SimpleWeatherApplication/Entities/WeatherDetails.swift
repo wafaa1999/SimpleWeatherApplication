@@ -30,23 +30,19 @@ struct WeatherDetails {
         if let location = jsonObject["location"] as? NSDictionary, let name = location["name"]{
             self.locationName = name as? String ?? ""
         }
-        
         if let current = jsonObject["current"] as? NSDictionary {
             if let temp = current["temp_c"] {
                 self.temperature = temp as? Float ?? 0.0
             }
-            
             if let condition = current["condition"] as? NSDictionary {
                 if let icon = condition["icon"] {
                     self.iconURL = icon as? String ?? ""
                     iconURL.insert(contentsOf: "https:", at: iconURL.startIndex)
                 }
-                
                 if let status = condition["text"] {
                     self.weatherStatus = status as? String ?? ""
                 }
             }
         }
     }
-    
 }
