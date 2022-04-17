@@ -15,20 +15,20 @@ extension WeatherRouter: URLRequestConvertible {
     /**
      Return URL request
      */
-  func asURLRequest() throws -> URLRequest {
-      
-    let url = try baseURL.asURL().appendingPathComponent(path).absoluteString.removingPercentEncoding
-    var request = URLRequest(url: URL(string: url!)!)
-    request.method = method
-      switch method {
-      case .get:
-          request = try URLEncodedFormParameterEncoder()
-            .encode(parameters, into: request)
-      default:
-          break
-      }
-    return request
-  }
+    func asURLRequest() throws -> URLRequest {
+        
+        let url = try baseURL.asURL().appendingPathComponent(path).absoluteString.removingPercentEncoding
+        var request = URLRequest(url: URL(string: url!)!)
+        request.method = method
+        switch method {
+        case .get:
+            request = try URLEncodedFormParameterEncoder()
+                .encode(parameters, into: request)
+        default:
+            break
+        }
+        return request
+    }
 }
 
 

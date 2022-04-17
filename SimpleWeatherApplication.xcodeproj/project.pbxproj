@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1A52E264D76DE0F147791C43 /* Pods_SimpleWeatherApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0378CD5690D6D883C15C5713 /* Pods_SimpleWeatherApplication.framework */; };
-		8740EB50280A33EA003D1DD1 /* WeatherViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740EB4F280A33EA003D1DD1 /* WeatherViewController2.swift */; };
 		87478A5728075DB9009BB4DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87478A5628075DB9009BB4DD /* AppDelegate.swift */; };
 		87478A5928075DB9009BB4DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87478A5828075DB9009BB4DD /* SceneDelegate.swift */; };
 		87478A5E28075DB9009BB4DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87478A5C28075DB9009BB4DD /* Main.storyboard */; };
@@ -26,7 +25,6 @@
 		02EE0DB8A3286445660B2350 /* Pods-SimpleWeatherApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleWeatherApplication.release.xcconfig"; path = "Target Support Files/Pods-SimpleWeatherApplication/Pods-SimpleWeatherApplication.release.xcconfig"; sourceTree = "<group>"; };
 		0378CD5690D6D883C15C5713 /* Pods_SimpleWeatherApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleWeatherApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5340F8FEF9308C9C8DB3ED6C /* Pods-SimpleWeatherApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleWeatherApplication.debug.xcconfig"; path = "Target Support Files/Pods-SimpleWeatherApplication/Pods-SimpleWeatherApplication.debug.xcconfig"; sourceTree = "<group>"; };
-		8740EB4F280A33EA003D1DD1 /* WeatherViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController2.swift; sourceTree = "<group>"; };
 		87478A5328075DB9009BB4DD /* SimpleWeatherApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleWeatherApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87478A5628075DB9009BB4DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87478A5828075DB9009BB4DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				876EF8232808087B000F0537 /* WeatherViewController.swift */,
-				8740EB4F280A33EA003D1DD1 /* WeatherViewController2.swift */,
 				876EF82D28084A2E000F0537 /* WeatherViewModel.swift */,
 			);
 			path = WeatherViewController;
@@ -262,7 +259,6 @@
 				87478A5728075DB9009BB4DD /* AppDelegate.swift in Sources */,
 				876EF8242808087B000F0537 /* WeatherViewController.swift in Sources */,
 				876EF82E28084A2E000F0537 /* WeatherViewModel.swift in Sources */,
-				8740EB50280A33EA003D1DD1 /* WeatherViewController2.swift in Sources */,
 				87478A5928075DB9009BB4DD /* SceneDelegate.swift in Sources */,
 				876EF82A28080919000F0537 /* WeatherRouterExtension.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sz5-c1-O23">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -40,6 +40,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gX-qj-M0k" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="194.5" y="435.5" width="25" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="FEf-un-tRo"/>
+                                    <constraint firstAttribute="width" secondItem="2gX-qj-M0k" secondAttribute="height" multiplier="1:1" id="MP1-wq-lsY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,13 +62,16 @@
                             <constraint firstItem="4pp-Pe-HZB" firstAttribute="trailing" secondItem="jj6-xm-I6e" secondAttribute="trailing" id="cV9-Vq-SS4"/>
                             <constraint firstItem="cWT-hu-3gc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fBt-WD-HPj"/>
                             <constraint firstItem="4pp-Pe-HZB" firstAttribute="top" secondItem="cWT-hu-3gc" secondAttribute="bottom" constant="17" id="sox-R8-V65"/>
+                            <constraint firstItem="2gX-qj-M0k" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uZg-7e-uaU"/>
                             <constraint firstItem="7ax-RG-cVF" firstAttribute="trailing" secondItem="jj6-xm-I6e" secondAttribute="trailing" id="vL9-w6-TLT"/>
                             <constraint firstItem="7ax-RG-cVF" firstAttribute="top" secondItem="4pp-Pe-HZB" secondAttribute="bottom" constant="52.5" id="yMa-JY-iFX"/>
+                            <constraint firstItem="2gX-qj-M0k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zY3-5s-v4I"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="icon" destination="cWT-hu-3gc" id="zO5-zz-1L3"/>
                         <outlet property="iconWidth" destination="yc5-dK-Sgf" id="Lvm-mo-OU5"/>
+                        <outlet property="loadingIndicator" destination="2gX-qj-M0k" id="xyc-Zg-wbO"/>
                         <outlet property="locationNameLabel" destination="jj6-xm-I6e" id="QmL-4c-Sss"/>
                         <outlet property="statusLabel" destination="4pp-Pe-HZB" id="G9k-ZL-bQN"/>
                         <outlet property="temperatureLabel" destination="7ax-RG-cVF" id="5ar-rH-PX8"/>
@@ -133,25 +144,25 @@
             </objects>
             <point key="canvasLocation" x="832" y="58"/>
         </scene>
-        <!--Weather View Controller2-->
+        <!--Weather View Controller-->
         <scene sceneID="mHh-cX-0y5">
             <objects>
-                <viewController id="sz5-c1-O23" customClass="WeatherViewController2" customModule="SimpleWeatherApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sz5-c1-O23" customClass="WeatherViewController" customModule="SimpleWeatherApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TQr-Yi-ppq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="HBe-p0-19X">
-                                <rect key="frame" x="20" y="114" width="374" height="334"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="HBe-p0-19X">
+                                <rect key="frame" x="20" y="114" width="374" height="374"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tH-vt-eGY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tH-vt-eGY">
                                         <rect key="frame" x="20" y="0.0" width="334" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CBo-iP-kGX">
-                                        <rect key="frame" x="110.5" y="72" width="153" height="192.5"/>
+                                        <rect key="frame" x="110.5" y="92" width="153" height="192.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N6t-t0-Hsx" customClass="SDAnimatedImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="153" height="153"/>
@@ -172,8 +183,8 @@
                                             <constraint firstAttribute="bottom" secondItem="SRf-1h-uiu" secondAttribute="bottom" id="ugq-QK-7fu"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi6-ah-lxt">
-                                        <rect key="frame" x="20" y="314.5" width="334" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi6-ah-lxt">
+                                        <rect key="frame" x="20" y="354.5" width="334" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -186,6 +197,14 @@
                                     <constraint firstAttribute="trailing" secondItem="3tH-vt-eGY" secondAttribute="trailing" constant="20" id="xs0-jO-u2m"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eln-RX-1Ze" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="194.5" y="435.5" width="25" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Eln-RX-1Ze" secondAttribute="height" multiplier="1:1" id="QPo-oH-lqG"/>
+                                    <constraint firstAttribute="width" constant="25" id="cK8-yW-WG4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wNg-7H-0Kg"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,12 +212,16 @@
                             <constraint firstItem="HBe-p0-19X" firstAttribute="leading" secondItem="wNg-7H-0Kg" secondAttribute="leading" constant="20" id="7wD-O8-lx7"/>
                             <constraint firstItem="wNg-7H-0Kg" firstAttribute="trailing" secondItem="HBe-p0-19X" secondAttribute="trailing" constant="20" id="Evi-KO-cud"/>
                             <constraint firstItem="wNg-7H-0Kg" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HBe-p0-19X" secondAttribute="bottom" constant="20" id="OhY-cS-g9h"/>
+                            <constraint firstItem="Eln-RX-1Ze" firstAttribute="centerY" secondItem="TQr-Yi-ppq" secondAttribute="centerY" id="Pzm-tQ-zg2"/>
+                            <constraint firstItem="Eln-RX-1Ze" firstAttribute="centerX" secondItem="TQr-Yi-ppq" secondAttribute="centerX" id="Z3R-4i-rOm"/>
                             <constraint firstItem="HBe-p0-19X" firstAttribute="top" secondItem="wNg-7H-0Kg" secondAttribute="top" constant="70" id="fTO-eQ-n48"/>
+                            <constraint firstItem="Eln-RX-1Ze" firstAttribute="width" secondItem="Eln-RX-1Ze" secondAttribute="height" multiplier="1:1" id="kqV-M9-1k4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="icon" destination="N6t-t0-Hsx" id="sCE-YV-TuQ"/>
                         <outlet property="iconWidth" destination="NtE-VJ-Z2v" id="XwI-Ea-bd7"/>
+                        <outlet property="loadingIndicator" destination="Eln-RX-1Ze" id="DXE-NW-uLQ"/>
                         <outlet property="locationNameLabel" destination="3tH-vt-eGY" id="m46-Vz-Pug"/>
                         <outlet property="statusLabel" destination="SRf-1h-uiu" id="NdN-k1-6dr"/>
                         <outlet property="temperatureLabel" destination="Wi6-ah-lxt" id="9fp-OS-Ijd"/>

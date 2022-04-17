@@ -10,10 +10,10 @@ import UIKit
 
 /// Weather view model
 class WeatherViewModel{
-
+    
     /// Weather
     private var weather: WeatherDetails
-
+    
     /**
      initialization.
      - Parameter weather: as WeatherDetails.
@@ -68,64 +68,12 @@ class WeatherViewModel{
     }
     
     /**
-      Get weather status.
-      - Returns: string to display as NSAttributedString.
-      */
+     Get weather status.
+     - Returns: string to display as NSAttributedString.
+     */
     func getWeatherStatus() -> NSAttributedString {
         return self.setupStringAttributes(fontSize: 18.0, fontFamily: "AvenirNextCondensed-Medium", color: .white, stringToAddAttributes: String(self.weather.weatherStatus))
     }
     
 }
 
-
-////
-////  WeatherViewModel.swift
-////  SimpleWeatherApplication
-////
-////  Created by Wafaa Dwikat on 14/04/2022.
-////
-//
-//import Foundation
-//
-//
-///// Movie view model
-//class WeatherViewModel{
-//
-//    /// Movies
-//    private var weather: WeatherDetails
-//
-//    /**
-//     Designated init..
-//     - Parameter movies: movies as [Movie].
-//     */
-//    init(weather: WeatherDetails) {
-//        self.weather = weather
-//    }
-//
-//    func getLocationName() -> String {
-//        
-//        return weather.locationName
-//    }
-//    
-//    func getIconURL() -> URL? {
-//        return URL(string: weather.iconURL)
-//        
-//    }
-//    
-//    func getTemperatureValue() -> String {
-//        return "\(weather.temperature )"
-//        
-//    }
-//    
-//    func getTemperatureType() -> String {
-//        return "℃"
-//    }
-//    
-//    func getWeatherStatus() -> String {
-//        return weather.weatherStatus
-//        
-//    }
-//    
-//    
-//
-//}

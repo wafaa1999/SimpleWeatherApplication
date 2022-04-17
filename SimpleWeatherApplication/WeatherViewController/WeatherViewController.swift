@@ -11,100 +11,94 @@ import NVActivityIndicatorView
 
 /// Weather View Controller
 class WeatherViewController: UIViewController {
-    
-    /// Weather
-    var weather: WeatherDetails?
-    
+
     /// Weather Model View
     private(set) var weatherModelView: WeatherViewModel!
-    
+
     /// Location Name Label
     @IBOutlet weak var locationNameLabel: UILabel!
-    
+
     /// Icon
     @IBOutlet weak var icon: SDAnimatedImageView!
-    
+
     /// Status Label
     @IBOutlet weak var statusLabel: UILabel!
-    
+
     /// Temperature Label
     @IBOutlet weak var temperatureLabel: UILabel!
-    
+
     /// Icon Width
     @IBOutlet weak var iconWidth: NSLayoutConstraint!
-    
-    /// Loading Inductor
-    var loadingInductor: NVActivityIndicatorView!
-    
+
+    /// Loading Indicator
+    @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!
+
     /**
      View Did Load.
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureInductor()
+        self.configureIndicator()
         self.showComponents(isShown: true)
-        self.showInductor(isShown: true)
+        self.showIndicator(isShown: true)
         self.fetchData(key: "f9fb0ed95ba94fc3abf63021221004", location: "Russia", aqi: "no")
     }
-    
+
     /**
-      Show indicator.
-      - Parameter isShown: as Bool.
-      */
-    private func showInductor(isShown: Bool) {
+     Show indicator.
+     - Parameter isShown: as Bool.
+     */
+    private func showIndicator(isShown: Bool) {
         if isShown {
-            self.loadingInductor.startAnimating()
+            self.loadingIndicator.startAnimating()
         } else {
-            self.loadingInductor.stopAnimating()
+            self.loadingIndicator.stopAnimating()
         }
     }
-    
+
     /**
      Setup indicator configuration.
-      */
-    private func configureInductor() {
-        let size: CGFloat = UIScreen.main.bounds.width * 0.16
-        let frame = CGRect(x: (view.frame.width - size) / 2, y: (view.frame.height - size) / 2, width: size, height: size)
-        loadingInductor = NVActivityIndicatorView(frame: frame, type: .lineSpinFadeLoader, color: .white, padding: 20)
-        loadingInductor.backgroundColor = .darkGray
-        view.addSubview(loadingInductor)
+     */
+    private func configureIndicator() {
+        loadingIndicator.type = .lineSpinFadeLoader
+        loadingIndicator.color = .white
+
     }
-    
+
     /**
-      Fetch data from API.
-      - Parameter key: as String.
-      - Parameter location: as String.
-      - Parameter aqi: as String.
-      */
+     Fetch data from API.
+     - Parameter key: as String.
+     - Parameter location: as String.
+     - Parameter aqi: as String.
+     */
     private func fetchData(key: String, location: String, aqi: String) {
         WeatherModel.getWeather(key: key, location: location, aqi: aqi) { result in
             switch result {
             case .success(let weatherResult):
-                self.weather = weatherResult
-                self.weatherModelView = WeatherViewModel(weather: self.weather ?? WeatherDetails(jsonObject: [:]))
+                self.weatherModelView = WeatherViewModel(weather: weatherResult)
                 self.setupData()
             case .failure(let error):
-              print(error)
+                print(error)
             }
         }
     }
-    
+
     /**
      Show Components.
-      - Parameter isShown: as Bool.
-      */
+     - Parameter isShown: as Bool.
+     */
     private func showComponents(isShown: Bool) {
         self.icon.isHidden = isShown
         self.locationNameLabel.isHidden = isShown
         self.statusLabel.isHidden = isShown
         self.temperatureLabel.isHidden = isShown
     }
-    
+
     /**
      Setup received data to  Components.
-      */
+     */
     private func setupData() {
-        self.showInductor(isShown: false)
+        self.showIndicator(isShown: false)
         self.showComponents(isShown: false)
         self.iconWidth.constant = UIScreen.main.bounds.width * 0.48
         self.locationNameLabel.attributedText = weatherModelView.getLocationName()
@@ -117,61 +111,106 @@ class WeatherViewController: UIViewController {
 
 
 
-////
-////  WeatherViewController.swift
-////  SimpleWeatherApplication
-////
-////  Created by Wafaa Dwikat on 14/04/2022.
-////
+
 //
-//import UIKit
-//import SDWebImage
-//
+///// Weather View Controller
 //class WeatherViewController: UIViewController {
 //
-//    var weather: WeatherDetails?
-//    private(set) var modelView: WeatherViewModel!
+//    /// Weather Model View
+//    private(set) var weatherModelView: WeatherViewModel!
+//
+//    /// Location Name Label
 //    @IBOutlet weak var locationNameLabel: UILabel!
+//
+//    /// Icon
 //    @IBOutlet weak var icon: SDAnimatedImageView!
+//
+//    /// Status Label
 //    @IBOutlet weak var statusLabel: UILabel!
+//
+//    /// Temperature Label
 //    @IBOutlet weak var temperatureLabel: UILabel!
-//    @IBOutlet weak var temperatureTypeLabel: UILabel!
+//
+//    /// Icon Width
 //    @IBOutlet weak var iconWidth: NSLayoutConstraint!
+//
+//    /// Loading Indicator
+//    @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!
+//
+//
+//    /// Weather Stack
+//    @IBOutlet weak var weatherStack: UIStackView!
+//
+//    /**
+//     View Did Load.
+//     */
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
+//        self.configureIndicator()
+//        self.showComponents(isShown: true)
+//        self.showIndicator(isShown: true)
 //        self.fetchData(key: "f9fb0ed95ba94fc3abf63021221004", location: "Russia", aqi: "no")
-//
 //    }
 //
+//    /**
+//     Show indicator.
+//     - Parameter isShown: as Bool.
+//     */
+//    private func showIndicator(isShown: Bool) {
+//        if isShown {
+//            self.loadingIndicator.startAnimating()
+//        } else {
+//            self.loadingIndicator.stopAnimating()
+//        }
+//    }
 //
+//    /**
+//     Setup indicator configuration.
+//     */
+//    private func configureIndicator() {
+//        self.loadingIndicator.type = .lineSpinFadeLoader
+//        self.loadingIndicator.color = .white
+//    }
+//
+//    /**
+//     Fetch data from API.
+//     - Parameter key: as String.
+//     - Parameter location: as String.
+//     - Parameter aqi: as String.
+//     */
 //    private func fetchData(key: String, location: String, aqi: String) {
 //        WeatherModel.getWeather(key: key, location: location, aqi: aqi) { result in
-//
 //            switch result {
 //            case .success(let weatherResult):
-//                self.weather = weatherResult
-//                self.modelView = WeatherViewModel(weather: self.weather ?? WeatherDetails(jsonObject: [:]))
+//                self.weatherModelView = WeatherViewModel(weather: weatherResult)
 //                self.setupData()
-//
-//
 //            case .failure(let error):
-//              print(error)
+//                print(error)
 //            }
 //        }
 //    }
 //
-//    private func setupData() {
-//
-//        self.iconWidth.constant = UIScreen.main.bounds.width * 0.6
-//        self.locationNameLabel.text = modelView.getLocationName()
-//        self.icon.sd_setImage(with: modelView.getIconURL(), completed: nil)
-//        self.statusLabel.text = modelView.getWeatherStatus()
-//        self.temperatureLabel.text = modelView.getTemperatureValue()
-//        self.temperatureTypeLabel.text = modelView.getTemperatureType()
-//
+//    /**
+//     Show Components.
+//     - Parameter isShown: as Bool.
+//     */
+//    private func showComponents(isShown: Bool) {
+//        self.weatherStack.isHidden = isShown
 //    }
 //
-//
-//
-//
+//    /**
+//     Setup received data to  Components.
+//     */
+//    private func setupData() {
+//        self.showIndicator(isShown: false)
+//        self.showComponents(isShown: false)
+//        self.iconWidth.constant = UIScreen.main.bounds.width * 0.48
+//        self.locationNameLabel.attributedText = weatherModelView.getLocationName()
+//        self.icon.sd_setImage(with: weatherModelView.getIconURL(), completed: nil)
+//        self.statusLabel.attributedText = weatherModelView.getWeatherStatus()
+//        self.temperatureLabel.attributedText = weatherModelView.getTemperature()
+//    }
 //}
+//
+//
+//

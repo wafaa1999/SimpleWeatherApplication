@@ -13,43 +13,43 @@ enum WeatherRouter {
     
     ///  Get weather
     case getWeather(key: String, location: String, aqi: String)
-
-   /// Base URL
+    
+    /// Base URL
     var baseURL: String {
         return "https://api.weatherapi.com"
     }
     
     /// Path
     var path: String {
-      switch self {
-      case .getWeather(_, _, _):
-          return "v1/current.json"
-      }
+        switch self {
+        case .getWeather(_, _, _):
+            return "v1/current.json"
+        }
     }
     
     /// Method
     var method: HTTPMethod {
-      switch self {
-      case .getWeather(_, _, _):
-        return .get
-
-      }
+        switch self {
+        case .getWeather(_, _, _):
+            return .get
+            
+        }
     }
-
+    
     /// Parameters
     var parameters:  [String: String]?  {
         switch self {
         case .getWeather(let key, let location, let aqi):
-            var parameters: [String: String] = [:]
-            parameters["key"] = key
-            parameters["q"] = location
-            parameters["aqi"] = aqi
-            return parameters
-    
+            return [
+                "key": key,
+                "q": location,
+                "aqi": aqi
+            ]
+            
         }
     }
     
-
+    
 }
 
 
